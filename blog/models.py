@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
+
 #models.Model = django model , them it's gonna save on date base
 class Post(models.Model): #model object
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)#link to other model

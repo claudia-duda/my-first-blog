@@ -1,59 +1,13 @@
-<html>
-    <head>
-        <title>Mini Blog</title>
-    </head>
-    <body>
-        <div class="titulo-blog">
-            <h1><a href="#">Curiosities blog to learn english</a></h1>
-        </div>
-        
+{% extends 'blog/base.html' %}
+    {% block content %}
         {% for post in posts %}
             <div class='publicacao'>
-                <p>published: {{ post.published_date }}</p>
-                <h2><a href="">{{ post.title }}</a></h2>
+                <div class = "date">
+                    <p>published: {{ post.published_date }}</p>    
+                </div>
+                <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
                 <p>{{ post.text|linebreaksbr }}</p>
             </div>
-        {% endfor %}  
-
-        <!--
-        <div class="titulo-blog">
-            <h1><a href="#">Curiosities blog to learn english</a></h1>
-        </div>
-
-        <div class='publicacao'>
-            <p>publicado: 14.06.2014, 12:14</p>
-            <h2><a href="#">Expressions to daily</a></h2>
-            <h3>Phrases foy your usually day</h3>
-            <p>I wake up at 6 o’clock. I get up at 
-                6.50. I make a cup of tea and iron my clothes. I have a shower and 
-                usually wear jeans, a blouse, a jumper or cardig
-                an and boots in the winter, or a skirt and blou
-                se in the summer. I brush my hair, put on my mak
-                -up. I pack my bag with all my teaching materia
-                ls. I then put on my coat and leave the house. 
-                I walk to the bus stop. I catch the bus at 8.15
-                , and then I pay my fare and sit down. It takes 
-                about 45 minutes to get to my destination three 
-                miles away. I get off the bus and walk to the s
-                chool where I teach English. I have to sign in a
-                nd get the key. Class starts at 9.25 and ends at 11.25.
-            </p>
-        </div>
-    </br>
-        <div class= "publicacao">
-            <p>publicado: 14.06.2014, 12:14</p>
-            <h2><a href="#">Phrases that you need use</a></h2>
-            <h3>Expressions to conversations</h3>
-            <p>is the wifi free? : can i have a password?
-                is this the train/bus bound for recife? 
-                sounds great! : good idea
-                are you free this weekend?
-                do you wanna hang out on sunday?
-                you look great
-                I had a great time
-                let's get together again/ can i see you again?
-            </p>
-        </div>
-  -->
-    </body>
-</html>
+        {% endfor %}
+    {% endblock %}   
+                       

@@ -21,6 +21,7 @@ class Post(models.Model): #model object
     def approved_comments(self):
         return self.comments.filter(approved_comment=True) 
 
+
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', on_delete=models.CASCADE, related_name='comments')
     author = models.CharField(max_length=200)
